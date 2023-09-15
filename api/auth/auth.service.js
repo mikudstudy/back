@@ -6,7 +6,7 @@ const cryptr = new Cryptr(process.env.SECRET1 || 'Secret-Puk-1234')
 
 async function login(username, password) {
     logger.debug(`auth.service - login with username, password: ${username}, ${password}`)
-
+    
     const user = await userService.getByField('username', username)
     const match = await bcrypt.compare(password, user.password)
 
